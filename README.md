@@ -7,6 +7,6 @@ The script checks a google sheet for new movies. The google sheet is my personal
 
 Through the use of Cloud functions and the Cloud scheduler, the bot checks for new movies every 24 hours so please check out the result:
 
-[Movie Bot](https://twitter.com/absolutism1123)
+[Movie Bot](https://twitter.com/elliesmoviebot)
 
 This was made in a series of examples used for educational purposes.
