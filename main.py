@@ -26,12 +26,10 @@ def send_tweet(event, context):
 
     run_throughs = 0
 
-    print(batches)
     empty = False
     for batch in batches:
         for r in batch:
             row = wks.row_values(r)
-            print(row)
             if row:
                 if wks.acell(f"D{r}").value.capitalize() == val:
                     movies.append(row)
@@ -42,16 +40,16 @@ def send_tweet(event, context):
         if empty:
             break
         else:
-            time.sleep(10)
+            time.sleep(30)
             run_throughs += 1
 
         if run_throughs == 5:
-            time.sleep(15)
+            time.sleep(30)
             run_throughs = 0
 
     if movies:
         for i in range(len(movies)):
-            tweet = f'{movies[i][0].title()} - {movies[i][2]} - {headers[1]}: {movies[i][1]}'
+            tweet = f'{movies[i][0].title()} - {movies[i][2]} - {headers[1]}: {movies[i][1]} - Rating : {movies[i][4]}'
             twit.statuses.update(
                 status = tweet
             )
